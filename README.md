@@ -18,6 +18,18 @@ npx tsc --noEmit
 npm run build
 ```
 
+## GitHub Pages
+
+A versão estática usa o mesmo conteúdo e estilo, com caminhos ajustados para `https://anacquesta.github.io/caroline-goncalves-1/`. Para gerá-la e conferir localmente:
+
+```bash
+npm ci
+npm run build:pages
+npm run preview:pages
+```
+
+O build gera `dist-pages/`, incluindo arquivos HTML para todas as rotas públicas e o painel demonstrativo. O workflow em `.github/workflows/pages.yml` publica essa pasta automaticamente a cada push no branch `main`, desde que **Settings → Pages → Build and deployment → Source** esteja em **GitHub Actions**. O painel e o formulário continuam demonstrativos: as edições ficam apenas no navegador e nenhuma mensagem é enviada.
+
 ## Demonstração
 
 - Home com três perspectivas orbitais e transições de 650–700 ms. Clique novamente para voltar. Mobile usa painéis expansíveis. Movimento reduzido é respeitado.
