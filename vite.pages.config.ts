@@ -3,18 +3,18 @@ import react from '@vitejs/plugin-react';
 import path from 'node:path';
 
 const projectRoot = __dirname;
-const base = '/caroline-goncalves-1/';
+const base = '/caroline-goncalves-2/';
 
 export default defineConfig({
-  root: path.join(projectRoot, 'pages'),
+  root: path.join(projectRoot, 'static-preview'),
   base,
   publicDir: path.join(projectRoot, 'public'),
   css: { postcss: projectRoot },
   resolve: {
     alias: [
-      { find: 'next/link', replacement: path.join(projectRoot, 'pages/shims/link.tsx') },
-      { find: 'next/navigation', replacement: path.join(projectRoot, 'pages/shims/navigation.ts') },
-      { find: 'next/dynamic', replacement: path.join(projectRoot, 'pages/shims/dynamic.tsx') },
+      { find: 'next/link', replacement: path.join(projectRoot, 'static-preview/shims/link.tsx') },
+      { find: 'next/navigation', replacement: path.join(projectRoot, 'static-preview/shims/navigation.ts') },
+      { find: 'next/dynamic', replacement: path.join(projectRoot, 'static-preview/shims/dynamic.tsx') },
       { find: '@', replacement: projectRoot },
     ],
   },

@@ -1,7 +1,7 @@
 import { chromium } from '@playwright/test';
 import { mkdir, writeFile } from 'node:fs/promises';
 
-const base = 'http://127.0.0.1:4173/caroline-goncalves-1';
+const base = 'http://127.0.0.1:4173/caroline-goncalves-2';
 const routes = [
   '', 'sobre', 'jornalismo', 'comunicacao', 'projetos', 'fotografia', 'blog', 'depoimentos', 'contato', 'admin',
   ...['cidade-em-voz-alta', 'presenca-que-aproxima', 'entre-luz-e-silencio', 'vozes-do-encontro'].map(slug => `projetos/${slug}`),
@@ -26,7 +26,7 @@ for (const route of routes) {
 await page.goto(`${base}/`, { waitUntil: 'networkidle' });
 await page.screenshot({ path: 'artifacts/qa/pages-home-desktop.png' });
 await page.getByRole('link', { name: /Perfil/ }).first().click();
-if (!page.url().endsWith('/caroline-goncalves-1/sobre/')) errors.push('A navegação para Perfil não funcionou.');
+if (!page.url().endsWith('/caroline-goncalves-2/sobre/')) errors.push('A navegação para Perfil não funcionou.');
 await page.setViewportSize({ width: 390, height: 844 });
 await page.goto(`${base}/`, { waitUntil: 'networkidle' });
 await page.screenshot({ path: 'artifacts/qa/pages-home-mobile.png' });

@@ -8,8 +8,8 @@ const eslintConfig = defineConfig([
   // Override default ignores of eslint-config-next.
   globalIgnores([
     // Default ignores of eslint-config-next:
-    ".next/**",
-    "out/**",
+    ".next/**", ".next-dev/**", ".vinext/**", ".wrangler/**", "dist-pages/**", "artifacts/**", "vendor/**",
+    ".legacy-before-vite/**", ".prototype-vite-preserved/**", ".sites-runtime/**", "out/**",
     "build/**",
     "next-env.d.ts",
   ]),
@@ -26,3 +26,4 @@ const eslintConfig = defineConfig([
 ]);
 
 export default eslintConfig;
+
