@@ -1,2 +1,6 @@
-import { SiteShell } from "@/components/site-shell";
-export default function EditorialRoute() { return <SiteShell />; }
+import {SiteShell} from '@/components/site-shell';
+import {posts,projects,albums} from '@/data/content';
+import type {Metadata} from 'next';
+export async function generateMetadata({params}:{params:Promise<{slug:string[]}>}):Promise<Metadata>{const {slug}=await params;const labels:Record<string,string>={sobre:'Sobre Caroline Gonçalves',jornalismo:'Jornalismo & Produção Editorial',comunicacao:'Comunicação Estratégica',fotografia:'Fotografia',projetos:'Projetos',blog:'Textos',depoimentos:'Depoimentos',contato:'Contato',admin:'Painel demonstrativo'};const record=slug[0]==='blog'?posts.find(p=>p.slug===slug[1]):slug[0]==='projetos'?projects.find(p=>p.slug===slug[1]):albums.find(a=>a.slug===slug[1]);const title=record?('title' in record?record.title:record.name):labels[slug[0]]||'Arquivo';const description=record?('excerpt' in record?record.excerpt:record.description):'Histórias por diferentes perspectivas. Jornalismo, comunicação e fotografia por Caroline Gonçalves.';return {title:title+' — Caroline Gonçalves',description,openGraph:{title,description,type:slug[0]==='blog'&&slug[1]?'article':'website'},robots:slug[0]==='admin'?{index:false,follow:false}:undefined};}
+export default function EditorialRoute(){return <SiteShell/>}
+

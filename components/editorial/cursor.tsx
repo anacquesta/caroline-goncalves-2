@@ -1,0 +1,3 @@
+"use client";
+import {useEffect,useRef} from 'react';
+export function EditorialCursor(){const ref=useRef<HTMLDivElement>(null);useEffect(()=>{if(!matchMedia('(hover:hover) and (pointer:fine)').matches)return;const move=(e:PointerEvent)=>{const el=ref.current;if(!el)return;const target=(e.target as HTMLElement).closest('.masonry>a,.project-row,.post-list>a,.photo-strip>a');el.style.transform=`translate(${e.clientX+16}px,${e.clientY+16}px)`;el.style.opacity=target?'1':'0';el.textContent=target?.matches('.post-list>a')?'LER':target?.matches('.project-row')?'ABRIR':'VER'};addEventListener('pointermove',move);return()=>removeEventListener('pointermove',move)},[]);return <div ref={ref} className="editorial-cursor" aria-hidden="true"/>}
