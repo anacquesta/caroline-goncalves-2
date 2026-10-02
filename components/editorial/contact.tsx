@@ -34,9 +34,21 @@ export function ContactForm() {
         onSubmit={async (e) => {
           e.preventDefault();
           const form = e.currentTarget;
+          const data = Object.fromEntries(new FormData(form));
+          if (process.env.NEXT_PUBLIC_STATIC_SITE === "true") {
+            const destination = contactLinks(settings).find(([name]) => name === "E-mail")?.[1] || "mailto:jornalistacarolinegoncalves@gmail.com";
+            const body = `Nome: ${data.name}
+E-mail: ${data.email}
+Empresa: ${data.company || "—"}
+
+${data.message}`;
+            window.location.href = destination + "?subject=" + encodeURIComponent("Contato pelo portfólio — " + data.subject) + "&body=" + encodeURIComponent(body);
+            setError(false);
+            setStatus("O e-mail foi preparado. Revise e envie no seu aplicativo de e-mail, ou entre em contato pelo WhatsApp.");
+            return;
+          }
           setBusy(true);
           setStatus("");
-          const data = Object.fromEntries(new FormData(form));
           try {
             const response = await fetch("/api/contact", {
               method: "POST",
@@ -122,7 +134,7 @@ export function ContactForm() {
           <input name="website" tabIndex={-1} autoComplete="off" />
         </label>
         <button className="ink-button" disabled={busy}>
-          {busy ? "ENVIANDO…" : "ENVIAR MENSAGEM →"}
+          {busy ? "ENVIANDO…" : process.env.NEXT_PUBLIC_STATIC_SITE === "true" ? "PREPARAR E-MAIL ↗" : "ENVIAR MENSAGEM →"}
         </button>
         <small className="demo-caption full">
           Seus dados serão usados para responder à sua mensagem.{" "}
@@ -171,9 +183,9 @@ export function Scheduling() {
             A agenda online ainda não foi configurada. Combine um horário
             diretamente pelos canais de contato.
           </p>
-          <Link className="text-link" href="/contato">
-            COMBINAR UMA CONVERSA →
-          </Link>
+          <a className="text-link" href={contactLinks(settings).find(([name]) => name === "WhatsApp")?.[1]} target="_blank" rel="noopener noreferrer">
+            COMBINAR UM HORÁRIO PELO WHATSAPP ↗
+          </a>
         </>
       )}
     </section>
@@ -185,9 +197,9 @@ export function Privacy() {
       <span className="eyebrow">PRIVACIDADE / COOKIES</span>
       <h1>Cuidado com os seus dados.</h1>
       <p>
-        O formulário coleta nome, e-mail, empresa, assunto e mensagem para
+        {process.env.NEXT_PUBLIC_STATIC_SITE === "true" ? "Na versão GitHub Pages, o formulário prepara uma mensagem no seu aplicativo de e-mail. Os dados preenchidos não são armazenados pelo site." : <>O formulário coleta nome, e-mail, empresa, assunto e mensagem para
         responder a solicitações de contato. As informações ficam no banco do
-        site e são acessíveis apenas à administração autorizada.
+        site e são acessíveis apenas à administração autorizada.</>}
       </p>
       <p>
         O site não utiliza cookies de publicidade. Um cookie essencial de sessão

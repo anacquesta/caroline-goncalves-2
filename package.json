@@ -6,16 +6,12 @@
     "node": ">=22.13.0"
   },
   "scripts": {
-    "install:ci": "node scripts/install-ci.mjs",
     "dev": "next dev --port 5174",
     "build": "next build",
     "build:pages": "vite build --config vite.pages.config.ts && node scripts/prepare-pages.mjs",
     "preview:pages": "vite preview --config vite.pages.config.ts",
     "start": "next start --port 5174",
-    "lint": "eslint . --ignore-pattern dist --ignore-pattern .next",
-    "db:generate": "drizzle-kit generate",
-    "dev:vinext": "node scripts/run-framework.mjs dev",
-    "build:vinext": "node scripts/run-framework.mjs build"
+    "lint": "eslint . --ignore-pattern dist --ignore-pattern .next"
   },
   "dependencies": {
     "@base-ui/react": "^1.7.0",
@@ -80,3 +76,4 @@
   },
   "type": "module"
 }
+

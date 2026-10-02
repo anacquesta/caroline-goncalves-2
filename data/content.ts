@@ -45,7 +45,7 @@ export const perspectives = [
 export const social = [
   ["E-mail", "mailto:jornalistacarolinegoncalves@gmail.com"],
   ["WhatsApp", "https://wa.me/5561981921769"],
-  ["Instagram", "https://www.instagram.com/ideiascomca/"],
+  ["Instagram", "https://www.instagram.com/carolquecomunica/"],
   ["LinkedIn", "https://www.linkedin.com/in/comunicologacaroline/"],
 ];
 export const projects = [

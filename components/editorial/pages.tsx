@@ -71,7 +71,7 @@ export function Footer() {
       <Link href="/" className="footer-brand">
         {settings["ConfiguraçõesNome do site"] || (
           <>
-            Carol <em>Gonzaga.</em>
+            Caroline <em>Gonçalves.</em>
           </>
         )}
       </Link>
@@ -81,7 +81,7 @@ export function Footer() {
         <span>Brasília, Brasil · © 2026</span>
       </p>
       <Link href="/privacidade">Privacidade</Link>
-      <Link href="/admin">Painel privado ↗</Link>
+      {process.env.NEXT_PUBLIC_STATIC_SITE !== "true" && <Link href="/admin">Painel privado ↗</Link>}
     </footer>
   );
 }
@@ -260,7 +260,7 @@ export function About() {
             {settings["PerfilApresentação"] ||
               "Sou Caroline Gonçalves, jornalista e pós-graduada em Marketing Estratégico Digital. Meu trabalho passa pelas palavras, pela estratégia e pelas imagens — linguagens que se encontram na vontade de compreender e contar histórias."}
           </p>
-          <p>Atualmente, sou Repórter de Redes Sociais no Metrópoles.</p>
+          <p>No perfil profissional enviado, minha atuação mais recente é como Repórter de Redes Sociais no Metrópoles.</p>
           <p>
             Da entrevista à cobertura de eventos, da produção e edição de textos
             ao conteúdo digital, acredito na comunicação que começa com uma boa
@@ -275,7 +275,7 @@ export function About() {
       <section className="section">
         <span className="eyebrow">TRAJETÓRIA / UMA NARRATIVA EM MOVIMENTO</span>
         <p className="demo-caption">
-          Experiências fornecidas no briefing. Períodos ainda a confirmar.
+          Experiências registradas no perfil profissional fornecido.
         </p>
         <div className="timeline">
           {[
@@ -476,6 +476,8 @@ export function Photography() {
         </p>
       )}
       <section className="section photography-section">
+        {!photos.length && <div className="folio-photo-feature"><figure><EditorialImage src={profilePortrait} alt="Caroline Gonçalves fotografando com sua câmera" /><figcaption>CAROLINE GONÇALVES / POR TRÁS DA CÂMERA</figcaption></figure><div><span className="folio-label">ACERVO EM PREPARAÇÃO</span><h3>NOVAS HISTÓRIAS.<br />NOVOS OLHARES.</h3><p>Os primeiros ensaios e registros autorais serão publicados em breve.</p><Link className="folio-link" href="/contato">CONVERSE SOBRE UM PROJETO ↗</Link></div></div>}
+
         <div className="filter-tabs" aria-label="Filtrar fotografias">
           {[
             "Todos",
@@ -501,7 +503,7 @@ export function Photography() {
           )}
         />
         <div className="album-index">
-          <span className="eyebrow">ENSAIOS / 01 — 03</span>
+          <span className="eyebrow">ENSAIOS / ARQUIVO</span>
           {albums.map((a) => (
             <Link key={a.slug} href={"/fotografia/" + a.slug}>
               {a.name}
@@ -764,7 +766,7 @@ export function Article({ slug }: { slug: string }) {
         <h1>{p.title}</h1>
         <p>{p.excerpt}</p>
         <div>
-          Por Carol Gonzaga{" "}
+          Por Caroline Gonçalves{" "}
           <span>
             {p.date} / {p.minutes} min de leitura
           </span>

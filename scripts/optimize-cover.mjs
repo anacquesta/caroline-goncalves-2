@@ -1,1 +1,0 @@
-import sharp from 'sharp';for(const width of [480,960,1600])await sharp('public/images/caroline-principal.png').resize({width,withoutEnlargement:true}).avif({quality:55,effort:6}).toFile(`public/images/caroline-principal-${width}.avif`);console.log('Capa AVIF gerada.');

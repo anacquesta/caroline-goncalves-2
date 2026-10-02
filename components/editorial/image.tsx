@@ -8,7 +8,7 @@ export function EditorialImage({
 }: ImgHTMLAttributes<HTMLImageElement>) {
   const local =
     typeof src === "string" &&
-    /^\/images\/(?:caroline-(?:principal|perfil|perfil-home)|architecture|work|street|sea|portrait2?|nature|light|event|editorial|detail|culture|city)\.(png|jpg)$/.test(
+    /^\/(?:caroline-goncalves-2\/)?images\/(?:caroline-(?:principal|perfil|perfil-home)|architecture|work|street|sea|portrait2?|nature|light|event|editorial|detail|culture|city)\.(png|jpg)$/.test(
       src,
     );
   const responsiveRemote =

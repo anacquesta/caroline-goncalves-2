@@ -44,6 +44,9 @@
   ],
   "exclude": [
     "node_modules",
-    "examples"
+    "examples",
+    "caroline-goncalves-3",
+    ".legacy-before-vite",
+    ".prototype-vite-preserved"
   ]
 }

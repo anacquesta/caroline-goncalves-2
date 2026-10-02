@@ -6,7 +6,7 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const output = path.join(root, 'dist-pages');
 const routes = [
   'sobre', 'jornalismo', 'comunicacao', 'projetos', 'fotografia',
-  'blog', 'depoimentos', 'contato', 'admin',
+  'blog', 'depoimentos', 'contato', 'admin', 'trabalhos', 'agendamento', 'privacidade', 'cookies',
   ...['cidade-em-voz-alta', 'presenca-que-aproxima', 'entre-luz-e-silencio', 'vozes-do-encontro'].map(slug => `projetos/${slug}`),
   ...['brasilia-em-pausa', 'presencas', 'cultura-em-movimento'].map(slug => `fotografia/${slug}`),
   ...['historias-continuam-importando', 'a-pergunta-antes-da-resposta', 'a-cidade-em-pequenos-gestos', 'fotografar-e-perceber', 'conteudo-com-intencao', 'o-tempo-da-escuta'].map(slug => `blog/${slug}`),

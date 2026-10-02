@@ -29,12 +29,12 @@ export const metadata: Metadata = {
   metadataBase: new URL(
     process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:5173",
   ),
-  title: "Carol Gonzaga — Jornalismo, comunicação e fotografia",
+  title: "Caroline Gonçalves — Jornalismo, comunicação e fotografia",
   description:
-    "Carol Gonzaga (Caroline Gonçalves), jornalista em Brasília. Reportagem, comunicação estratégica, conteúdo e fotografia.",
+    "Caroline Gonçalves (Caroline Gonçalves), jornalista em Brasília. Reportagem, comunicação estratégica, conteúdo e fotografia.",
   alternates: { canonical: "/" },
   openGraph: {
-    title: "Carol Gonzaga — Jornalismo, comunicação e fotografia",
+    title: "Caroline Gonçalves — Jornalismo, comunicação e fotografia",
     description: "Jornalismo · Comunicação · Fotografia",
     locale: "pt_BR",
     type: "website",

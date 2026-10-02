@@ -3,13 +3,13 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
+import { ReferenceSections } from "./editorial/reference-sections";
 import { Cover } from "./editorial/cover";
 import { Scheduling, Privacy } from "./editorial/contact";
 import { SettingsContext } from "@/data/settings";
 import { ContentContext } from "@/data/provider";
 import { seed, type Store } from "@/lib/cms/seed";
 import {
-  HomeSections,
   Footer,
   About,
   PerspectivePage,
@@ -66,13 +66,16 @@ export function SiteShell({
     };
   }, [path]);
   const [section, slug] = path.slice(1).split("/");
-  if (section === "admin") return <Admin />;
+  if (section === "admin") {
+    if (process.env.NEXT_PUBLIC_STATIC_SITE === "true") return <main className="page-heading"><Link href="/">← VOLTAR AO PORTFÓLIO</Link><h1>Publicação de conteúdo.</h1><p>Esta versão é hospedada no GitHub Pages. O conteúdo pode ser atualizado pelo repositório; o painel online exige uma hospedagem com servidor.</p></main>;
+    return <Admin />;
+  }
   let content;
   if (!section)
     content = (
       <>
         <Cover />
-        <HomeSections />
+        <ReferenceSections />
       </>
     );
   else if (section === "sobre") content = <About />;
@@ -97,6 +100,7 @@ export function SiteShell({
           <a className="skip" href="#main">
             Ir para o conteúdo
           </a>
+          <header className="folio-header"><Link href="/" className="folio-brand" aria-label="Caroline Gonçalves — início">CG<span>.</span></Link><nav aria-label="Menu do portfólio">{[["Perfil","/sobre"],["Fotografia","/fotografia"],["Textos","/blog"],["Trabalhos","/trabalhos"]].map(([label,href]) => <Link key={href} href={href} aria-current={path === href ? "page" : undefined}>{label}</Link>)}</nav><Link className="folio-header-contact" href="/contato">VAMOS CONVERSAR <span>↗</span></Link></header>
           <aside className={"sidebar " + (open ? "expanded" : "")}>
             <Link
               className="monogram"
@@ -133,7 +137,7 @@ export function SiteShell({
             </nav>
             <div className="rail-social">
               <a
-                href="https://www.instagram.com/ideiascomca/"
+                href="https://www.instagram.com/carolquecomunica/"
                 aria-label="Instagram"
               >
                 Ig <b>Instagram ↗</b>

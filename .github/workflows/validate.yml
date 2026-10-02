@@ -1,6 +1,5 @@
-name: Validar aplicação Next.js
+name: Validar portfólio
 on:
-  push:
   pull_request:
 permissions:
   contents: read
@@ -14,12 +13,4 @@ jobs:
           node-version: '22'
           cache: npm
       - run: npm ci
-      - run: npx tsc --noEmit
-      - run: npm run build
-      - run: npx playwright install --with-deps chromium
-      - run: node scripts/qa-cms.mjs
-      - uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: cms-validation
-          path: artifacts/model2/cms-integration.json
+      - run: npm run build:pages

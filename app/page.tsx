@@ -13,10 +13,10 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title:
       settings["SEOTítulo do site"] ||
-      "Carol Gonzaga — Jornalismo, comunicação e fotografia",
+      "Caroline Gonçalves — Jornalismo, comunicação e fotografia",
     description:
       settings["SEODescrição SEO"] ||
-      "Carol Gonzaga (Caroline Gonçalves), jornalista em Brasília. Reportagem, comunicação estratégica, conteúdo e fotografia.",
+      "Caroline Gonçalves (Caroline Gonçalves), jornalista em Brasília. Reportagem, comunicação estratégica, conteúdo e fotografia.",
     openGraph: {
       images: ["/images/caroline-principal.png"],
       locale: "pt_BR",
@@ -24,7 +24,7 @@ export async function generateMetadata(): Promise<Metadata> {
       url: siteUrl(),
       title:
         settings["SEOOpenGraph título"] ||
-        "Carol Gonzaga — Jornalismo, comunicação e fotografia",
+        "Caroline Gonçalves — Jornalismo, comunicação e fotografia",
       description:
         settings["SEOOpenGraph descrição"] ||
         "Jornalismo, comunicação e fotografia em Brasília",
@@ -47,7 +47,7 @@ export default async function Home() {
             "@context": "https://schema.org",
             "@type": "Person",
             "@id": siteUrl() + "/#person",
-            name: "Carol Gonzaga",
+            name: "Caroline Gonçalves",
             alternateName: "Caroline Gonçalves",
             jobTitle: "Jornalista",
             url: siteUrl(),
@@ -66,7 +66,7 @@ export default async function Home() {
           __html: structuredData({
             "@context": "https://schema.org",
             "@type": "WebSite",
-            name: "Carol Gonzaga",
+            name: "Caroline Gonçalves",
             url: siteUrl(),
             inLanguage: "pt-BR",
             publisher: { "@id": siteUrl() + "/#person" },

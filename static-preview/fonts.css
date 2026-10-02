@@ -1,0 +1,4 @@
+@font-face { font-family: 'Portfolio Interface'; src: url('/fonts/font-5.woff2') format('woff2'); font-weight: 400 700; font-display: swap; }
+@font-face { font-family: 'Portfolio Editorial'; src: url('/fonts/font-8.woff2') format('woff2'); font-weight: 400 600; font-display: swap; }
+@font-face { font-family: 'Portfolio Editorial'; src: url('/fonts/font-11.woff2') format('woff2'); font-style: italic; font-weight: 400 500; font-display: swap; }
+:root { --font-interface: 'Portfolio Interface'; --font-editorial: 'Portfolio Editorial'; }

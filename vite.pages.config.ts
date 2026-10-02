@@ -8,6 +8,7 @@ const base = '/caroline-goncalves-2/';
 export default defineConfig({
   root: path.join(projectRoot, 'static-preview'),
   base,
+  define: { 'process.env.NEXT_PUBLIC_STATIC_SITE': JSON.stringify('true'), 'process.env.NEXT_PUBLIC_SCHEDULING_URL': JSON.stringify('') },
   publicDir: path.join(projectRoot, 'public'),
   css: { postcss: projectRoot },
   resolve: {

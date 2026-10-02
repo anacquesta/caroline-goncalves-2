@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { slug } = await params;
   if (slug[0] === "admin")
     return {
-      title: "Painel privado — Carol Gonzaga",
+      title: "Painel privado — Caroline Gonçalves",
       robots: { index: false, follow: false },
     };
   const { record } = await resolve(slug);
@@ -34,11 +34,11 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
     record?.seoDescription ||
       record?.excerpt ||
       record?.description ||
-      "Jornalismo, comunicação estratégica e fotografia em Brasília por Carol Gonzaga (Caroline Gonçalves).",
+      "Jornalismo, comunicação estratégica e fotografia em Brasília por Caroline Gonçalves.",
   );
   const url = siteUrl() + "/" + slug.join("/");
   return {
-    title: title + " — Carol Gonzaga",
+    title: title + " — Caroline Gonçalves",
     description,
     alternates: {
       canonical: record?.canonical ? String(record.canonical) : url,
@@ -116,7 +116,7 @@ export default async function EditorialRoute({ params }: Params) {
               description: record.excerpt,
               author: {
                 "@type": "Person",
-                name: "Carol Gonzaga",
+                name: "Caroline Gonçalves",
                 url: siteUrl() + "/sobre",
               },
               datePublished: record.date,
